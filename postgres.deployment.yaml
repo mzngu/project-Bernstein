@@ -13,6 +13,7 @@ spec:
       labels:
         app: postgres
     spec:
+      restartPolicy: Always 
       containers:
         - name: postgres
           image: postgres:13
@@ -26,7 +27,6 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-storage
-          restartPolicy: Always
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
